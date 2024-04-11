@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reader Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .reader-info {
+            margin-bottom: 20px;
+        }
+        .reader-info label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reader Detail</h1>
+        <div class="reader-info">
+            <label>Reader Name:</label>
+            <p>{{ reader.reader_name }}</p>
+        </div>
+        <div class="reader-info">
+            <label>Email:</label>
+            <p>{{ reader.email }}</p>
+        </div>
+        <a href="{% url 'reader_list' %}">Back to Reader List</a>
+    </div>
+</body>
+</html>

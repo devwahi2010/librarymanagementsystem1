@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .btn-group {
+            margin-bottom: 20px;
+        }
+        .btn-group form {
+            display: inline;
+        }
+        .btn-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .btn-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <div class="btn-group">
+            <form method="post" action="/staff/">
+                {% csrf_token %}
+                <button type="submit">Staff</button>
+            </form>
+            <form method="post" action="/publishers/">
+                {% csrf_token %}
+                <button type="submit">Publishers</button>
+            </form>
+            <form method="post" action="/books/">
+                {% csrf_token %}
+                <button type="submit">Books</button>
+            </form>
+            <form method="post" action="/reservations/">
+                {% csrf_token %}
+                <button type="submit">Reservations</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

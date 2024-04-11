@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .report-info {
+            margin-bottom: 20px;
+        }
+        .report-info label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Report Detail</h1>
+        <div class="report-info">
+            <label>Report Text:</label>
+            <p>{{ report.report_text }}</p>
+        </div>
+        <div class="report-info">
+            <label>Report Date:</label>
+            <p>{{ report.report_date }}</p>
+        </div>
+        <a href="{% url 'report_list' %}">Back to Report List</a>
+    </div>
+</body>
+</html>

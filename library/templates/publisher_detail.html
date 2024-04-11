@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publisher Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .publisher-info {
+            margin-bottom: 20px;
+        }
+        .publisher-info label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Publisher Detail</h1>
+        <div class="publisher-info">
+            <label>Publisher Name:</label>
+            <p>{{ publisher.publisher_name }}</p>
+        </div>
+        <div class="publisher-info">
+            <label>Location:</label>
+            <p>{{ publisher.location }}</p>
+        </div>
+        <a href="{% url 'publisher_list' %}">Back to Publisher List</a>
+    </div>
+</body>
+</html>

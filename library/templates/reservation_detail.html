@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .reservation-info {
+            margin-bottom: 20px;
+        }
+        .reservation-info label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reservation Detail</h1>
+        <div class="reservation-info">
+            <label>Reader Name:</label>
+            <p>{{ reservation.reader.reader_name }}</p>
+        </div>
+        <div class="reservation-info">
+            <label>Book Title:</label>
+            <p>{{ reservation.book.title }}</p>
+        </div>
+        <div class="reservation-info">
+            <label>Reserve Date:</label>
+            <p>{{ reservation.reserve_date }}</p>
+        </div>
+        <div class="reservation-info">
+            <label>Return Date:</label>
+            <p>{{ reservation.return_date }}</p>
+        </div>
+        <a href="{% url 'reservation_list' %}">Back to Reservation List</a>
+    </div>
+</body>
+</html>

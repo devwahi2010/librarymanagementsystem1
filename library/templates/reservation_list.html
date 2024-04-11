@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #e6e6e6;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reservation List</h1>
+        <ul>
+            {% for reservation in reservations %}
+                <li>
+                    <strong>Reader:</strong> {{ reservation.reader.reader_name }}<br>
+                    <strong>Book:</strong> {{ reservation.book.title }}<br>
+                    <strong>Reserve Date:</strong> {{ reservation.reserve_date }}<br>
+                    <strong>Return Date:</strong> {{ reservation.return_date }}<br>
+                    <a href="{% url 'reservation_update' reservation.pk %}">Update</a> |
+                    <a href="{% url 'reservation_delete' reservation.pk %}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

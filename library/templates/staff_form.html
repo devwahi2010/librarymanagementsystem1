@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Staff Form</h1>
+        <form action="{% if staff.id %}{% url 'staff_update' staff.id %}{% else %}{% url 'staff_create' %}{% endif %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="staff_name">Staff Name:</label>
+                <input type="text" id="staff_name" name="staff_name" value="{{ staff.staff_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="position">Position:</label>
+                <select id="position" name="position" required>
+                    <option value="Manager" {% if staff.position == 'Manager' %} selected {% endif %}>Manager</option>
+                    <option value="Librarian" {% if staff.position == 'Librarian' %} selected {% endif %}>Librarian</option>
+                    <option value="Assistant Librarian" {% if staff.position == 'Assistant Librarian' %} selected {% endif %}>Assistant Librarian</option>
+                    <option value="Clerk" {% if staff.position == 'Clerk' %} selected {% endif %}>Clerk</option>
+                    <option value="Caretaker" {% if staff.position == 'Caretaker' %} selected {% endif %}>Caretaker</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

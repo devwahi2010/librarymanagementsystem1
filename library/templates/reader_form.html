@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .publisher-info {
+            margin-bottom: 20px;
+        }
+        .reader-info label {
+            font-weight: bold;
+        }
+        .btn-group {
+            margin-top: 20px;
+        }
+        .btn-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-group button:first-child {
+            margin-right: 10px;
+        }
+        .btn-group button:hover {
+            opacity: 0.8;
+        }
+        .publisher-row {
+            display: flex;
+            align-items: center;
+        }
+        .book-row input[type="text"] {
+            margin-right: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Publisher Detail</h1>
+        <div class="book-row">
+            <form action="{% url 'reader_update' reader.id %}" method="POST">
+                {% csrf_token %}
+                <div class="book-info">
+                    <label for="reader_name">Publisher Name:</label>
+                    <input type="text" id="reader_name" name="reader_name" value="{{ reader.reader_name }}">
+                </div>
+                <div class="reader-info">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" value="{{ reader.email }}">
+                </div>
+                <div class="btn-group">
+                    <button type="submit">Update</button>
+                </div>
+            </form>
+            <form action="{% url 'reader_delete' reader.id %}" method="POST">
+                {% csrf_token %}
+                <div class="btn-group">
+                    <button type="submit">Delete</button>
+                </div>
+            </form>
+        </div>
+        <a href="{% url 'reader_list' %}">Back to Reader List</a>
+    </div>
+</body>
+</html>
+
+
